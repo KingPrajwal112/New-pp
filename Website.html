@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div id="inputcontain">
+        <input id="rre" />
+        <input id="rer" />
+       
+        <button id="err">Save All</button>
+    </div>
+
+    <script>
+        let inputcontainer=document.getElementById("inputcontain");
+        let t=document.getElementById("ll");
+        let butt = document.getElementById("ee");
+
+        let butt1 = document.getElementById("err");
+
+
+let list=[];
+butt1.onclick=function(){
+    let input = document.getElementById("rre");
+    let input1 = document.getElementById("rer");
+    let uu=input.value;
+    let vv=input1.value;
+    let obj={new: uu,holder:vv}
+    list.push(obj);
+    if (uu!==""){
+         localStorage.setItem("TotalList",JSON.stringify(list))
+        
+    }
+    else {
+        return alert("Please Enter text")
+    }
+    
+    
+}
+    
+            
+function newoff(Element){
+    let ulelement=document.createElement("ul");
+    let lielement=document.createElement("li");
+    inputcontainer.appendChild(ulelement)
+    ulelement.appendChild(lielement);
+    lielement.textContent=Element.new;
+    let rr=document.createElement("input");
+    rr.placeholder=Element.holder;
+    lielement.appendChild(rr);
+    
+}
+let yy=localStorage.getItem("TotalList");
+let parse=JSON.parse(yy)
+
+
+for (let i of parse){
+    newoff(i)
+}
+
+    </script>
+  </body>
+</html>
